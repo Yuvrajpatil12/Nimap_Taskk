@@ -1,0 +1,66 @@
+﻿@model Nimap_Task.Models.Product_Model
+
+@using (Html.BeginForm("SaveorUpdateProduct", "product", FormMethod.Post))
+{
+    
+    <div>
+        <div id="Insert" class="container-fluid tab-pane active">
+            <div class="card-header bg-dark">
+                <h3 class="font-weight-bolder text-center    text-white">
+                    Employee Master
+
+                </h3>
+            </div>
+
+            <div class="card-body card shadow-lg border-0 rounded-lg">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Product name<small style="color:red">*</small></label>
+                            @Html.TextBoxFor(m => m.Product_Name, new { @class = "form-control" })
+                            @Html.HiddenFor(m => m.Product_Id)
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Category Name <small style="color:red">*</small></label>
+                            @Html.DropDownListFor(m => m.Category_Id, new List<SelectListItem>
+                           {
+                           new SelectListItem{Text="__select__",Value="0"},
+                           new SelectListItem{Text="Oil",Value="1"},
+                           new SelectListItem{Text="Chocalate",Value="2"},
+                            new SelectListItem{Text="IceCreme",Value="3"},
+                             new SelectListItem{Text="Other",Value="4"}
+
+                           }, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    @*<div class="col-md-3">
+            <div class="form-group">
+                <label>Product name<small style="color:red">*</small></label>
+                @Html.DropDownListFor(m => m.Category_Id,
+              new SelectList(ViewBag.category_name, "Value", "Text"),new {@class="form-control"})
+            </div>
+        </div>*@
+                </div>
+            </div>
+             <center>
+                 <div class="form-group mt-4 mb-0 form-actions">
+                     <button type="submit" class="btn btn-success">Submit</button>
+                 </div>
+             </center>
+        </div>
+    </div>
+}
+<br />
+@*<div id="Insert" class="container-fluid tab-pane active">
+    <div class="card-header bg-dark">
+         <h3 class="font-weight-bolder text-center text-white">
+            Product Report
+         </h3>
+    </div>
+    <div class="card-body card shadow-lg border-0 rounded-lg">
+    </div>
+</div>*@
+           @Html.Action("Product_Partial_s")
+

@@ -1,0 +1,32 @@
+﻿@model Nimap_Task.Models.Category_Model
+
+@using (Html.BeginForm("SaveorUpdateCategory", "category", FormMethod.Post))
+{
+    <br />
+    <div id="Insert" class="container-fluid tab-pane active">
+        <div class="card-header bg-dark">
+            <h3 class="font-weight-bolder text-center    text-white">
+                Category Form
+
+            </h3>
+        </div>
+        <div class="card-body card shadow-lg border-0 rounded-lg">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="font-weight-bold">Category Name<small style="color:red">*</small></label>
+                        @Html.TextBoxFor(m => m.Categoty_Name, new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <center>
+            <div class="form-group mt-4 mb-0 form-actions">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </center>
+    </div>
+    
+ }
+
+
